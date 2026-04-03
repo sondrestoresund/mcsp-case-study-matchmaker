@@ -763,3 +763,141 @@ h3 {
     font-size: 0.85rem;
   }
 }
+.gate-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(25,60,255,0.18), transparent 22%),
+    radial-gradient(circle at 20% 20%, rgba(252,11,27,0.12), transparent 18%),
+    linear-gradient(180deg, #050505 0%, #0f0f0f 100%);
+}
+
+.gate-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.32);
+}
+
+.gate-kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mcsp-green);
+  margin-bottom: 10px;
+}
+
+.gate-card h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  color: white;
+}
+
+.gate-copy {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.gate-form {
+  display: grid;
+  gap: 12px;
+}
+
+.gate-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+}
+
+.gate-button {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 0;
+  background: var(--mcsp-green);
+  color: black;
+  font-weight: 700;
+}
+
+.gate-error {
+  margin-top: 14px;
+  color: #ff7b7b;
+}
+.gate-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(25,60,255,0.18), transparent 22%),
+    radial-gradient(circle at 20% 20%, rgba(252,11,27,0.12), transparent 18%),
+    linear-gradient(180deg, #050505 0%, #0f0f0f 100%);
+}
+
+.gate-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.32);
+}
+
+.gate-kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mcsp-green);
+  margin-bottom: 10px;
+}
+
+.gate-card h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  color: white;
+}
+
+.gate-copy {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.gate-form {
+  display: grid;
+  gap: 12px;
+}
+
+.gate-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+}
+
+.gate-button {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 0;
+  background: var(--mcsp-green);
+  color: black;
+  font-weight: 700;
+}
+
+.gate-error {
+  margin-top: 14px;
+  color: #ff7b7b;
+}
