@@ -6,6 +6,7 @@ import caseStudyExtracts from './caseStudyExtracts.json'
 const siteTitle = 'MCSP Case Study Matchmaker'
 
 const initialFilters = {
+  client: [],
   industry: [],
   challenge: [],
   channel: [],
@@ -114,12 +115,28 @@ function App() {
   const [expandedExcerpt, setExpandedExcerpt] = useState('')
   const [filtersOpen, setFiltersOpen] = useState(true)
 
+  const clientFilterValues = useMemo(() => {
+    return [...new Set(caseStudies.map((study) => study.client))].sort((a, b) => a.localeCompare(b))
+  }, [])
+
+  const allFilterGroups = useMemo(() => ({
+    region: filterGroups.region,
+    industry: filterGroups.industry,
+    channel: filterGroups.channel,
+    challenge: filterGroups.challenge,
+    outcomeType: filterGroups.outcomeType,
+    client: clientFilterValues,
+  }), [clientFilterValues])
+
   const activeFiltersCount = Object.values(filters).flat().length
   const hasActiveFilters = activeFiltersCount > 0
 
   const results = useMemo(() => {
     const ranked = caseStudies
       .filter((study) => {
+        if (filters.client.length > 0 && !filters.client.includes(study.client)) {
+          return false
+        }
         if (filters.region.length > 0 && !filters.region.some((region) => study.regions.includes(region))) {
           return false
         }
@@ -139,6 +156,9 @@ function App() {
       })
       .map((study) => {
         const whySelected = []
+        filters.client.forEach((client) => {
+          if (study.client === client) whySelected.push(`Client: ${client}`)
+        })
         filters.industry.forEach((industry) => {
           if (study.industry.includes(industry)) whySelected.push(`Industry: ${formatFilterLabel(industry)}`)
         })
@@ -169,6 +189,7 @@ function App() {
 
   const totalResultsCount = useMemo(() => {
     return caseStudies.filter((study) => {
+      if (filters.client.length > 0 && !filters.client.includes(study.client)) return false
       if (filters.region.length > 0 && !filters.region.some((region) => study.regions.includes(region))) return false
       if (filters.industry.length > 0 && !filters.industry.some((industry) => study.industry.includes(industry))) return false
       if (filters.challenge.length > 0 && !filters.challenge.some((challenge) => study.challenges.includes(challenge))) return false
@@ -238,7 +259,7 @@ function App() {
 
           {filtersOpen && (
             <div className="filters-body">
-              {Object.entries(filterGroups).map(([group, values]) => (
+              {Object.entries(allFilterGroups).map(([group, values]) => (
                 <section key={group} className="filter-group">
                   <div className="filter-title">{group === 'outcomeType' ? 'outcome' : group}</div>
                   <div className="chip-wrap">
